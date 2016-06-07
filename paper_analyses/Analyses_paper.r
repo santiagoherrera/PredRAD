@@ -8,7 +8,7 @@
 # the Free Software Foundation, version 2.
 
 #Change working directory
-#setwd("/Users/tiagohe/Documents/RADtag/Genomes/paper/scripts/")
+#setwd("~/Documents/RADtag/Genomes/paper/scripts/")
 # Load library
 library(gplots)
 library(plyr)
@@ -608,24 +608,24 @@ log_obsfreq_matrix_perMb[433,12]<-0.0
 
 
 #Calculate similarity index for each enzyme ((observed-expgcected)/expgcected) for gc
-AgeI_percgc<-(AgeI_obsfreq-AgeI_expgcfreq)/AgeI_expgcfreq
-ApoI_percgc<-(ApoI_obsfreq-ApoI_expgcfreq)/ApoI_expgcfreq
-BsrFI_percgc<-(BsrFI_obsfreq-BsrFI_expgcfreq)/BsrFI_expgcfreq
-EcoRI_percgc<-(EcoRI_obsfreq-EcoRI_expgcfreq)/EcoRI_expgcfreq
-FatI_percgc<-(FatI_obsfreq-FatI_expgcfreq)/FatI_expgcfreq
-KpnI_percgc<-(KpnI_obsfreq-KpnI_expgcfreq)/KpnI_expgcfreq
-MluCI_percgc<-(MluCI_obsfreq-MluCI_expgcfreq)/MluCI_expgcfreq
-MseI_percgc<-(MseI_obsfreq-MseI_expgcfreq)/MseI_expgcfreq
-MspI_percgc<-(MspI_obsfreq-MspI_expgcfreq)/MspI_expgcfreq
-NcoI_percgc<-(NcoI_obsfreq-NcoI_expgcfreq)/NcoI_expgcfreq
-NgoMIV_percgc<-(NgoMIV_obsfreq-NgoMIV_expgcfreq)/NgoMIV_expgcfreq
-NotI_percgc<-(NotI_obsfreq-NotI_expgcfreq)/NotI_expgcfreq
-NsiI_percgc<-(NsiI_obsfreq-NsiI_expgcfreq)/NsiI_expgcfreq
-NspI_percgc<-(NspI_obsfreq-NspI_expgcfreq)/NspI_expgcfreq
-PciI_percgc<-(PciI_obsfreq-PciI_expgcfreq)/PciI_expgcfreq
-PstI_percgc<-(PstI_obsfreq-PstI_expgcfreq)/PstI_expgcfreq
-SbfI_percgc<-(SbfI_obsfreq-SbfI_expgcfreq)/SbfI_expgcfreq
-SgrAI_percgc<-(SgrAI_obsfreq-SgrAI_expgcfreq)/SgrAI_expgcfreq
+AgeI_percgc<-log2(AgeI_obsfreq/AgeI_expgcfreq)
+ApoI_percgc<-log2(ApoI_obsfreq/ApoI_expgcfreq)
+BsrFI_percgc<-log2(BsrFI_obsfreq/BsrFI_expgcfreq)
+EcoRI_percgc<-log2(EcoRI_obsfreq/EcoRI_expgcfreq)
+FatI_percgc<-log2(FatI_obsfreq/FatI_expgcfreq)
+KpnI_percgc<-log2(KpnI_obsfreq/KpnI_expgcfreq)
+MluCI_percgc<-log2(MluCI_obsfreq/MluCI_expgcfreq)
+MseI_percgc<-log2(MseI_obsfreq/MseI_expgcfreq)
+MspI_percgc<-log2(MspI_obsfreq/MspI_expgcfreq)
+NcoI_percgc<-log2(NcoI_obsfreq/NcoI_expgcfreq)
+NgoMIV_percgc<-log2(NgoMIV_obsfreq/NgoMIV_expgcfreq)
+NotI_percgc<-log2(NotI_obsfreq/NotI_expgcfreq)
+NsiI_percgc<-log2(NsiI_obsfreq/NsiI_expgcfreq)
+NspI_percgc<-log2(NspI_obsfreq/NspI_expgcfreq)
+PciI_percgc<-log2(PciI_obsfreq/PciI_expgcfreq)
+PstI_percgc<-log2(PstI_obsfreq/PstI_expgcfreq)
+SbfI_percgc<-log2(SbfI_obsfreq/SbfI_expgcfreq)
+SgrAI_percgc<-log2(SgrAI_obsfreq/SgrAI_expgcfreq)
 percgc<-cbind(ids,AgeI_percgc,ApoI_percgc,BsrFI_percgc,EcoRI_percgc,FatI_percgc,KpnI_percgc,MluCI_percgc,MseI_percgc,MspI_percgc,NcoI_percgc,NgoMIV_percgc,NotI_percgc,NsiI_percgc,NspI_percgc,PciI_percgc,PstI_percgc,SbfI_percgc,SgrAI_percgc)
 colnames(percgc) <- c("id","AgeI","ApoI","BsrFI","EcoRI","FatI","KpnI","MluCI","MseI","MspI","NcoI","NgoMIV","NotI","NsiI","NspI","PciI","PstI","SbfI","SgrAI")
 row.names(percgc) <- percgc$id
@@ -633,24 +633,24 @@ percgc_frame<- percgc[,2:19]
 percgc_matrix <- data.matrix(percgc_frame)
 
 #Calculate similarity index for each enzyme ((observed-expected)/expected) for mono
-AgeI_percmono<-(AgeI_obsfreq-AgeI_expmonofreq)/AgeI_expmonofreq
-ApoI_percmono<-(ApoI_obsfreq-ApoI_expmonofreq)/ApoI_expmonofreq
-BsrFI_percmono<-(BsrFI_obsfreq-BsrFI_expmonofreq)/BsrFI_expmonofreq
-EcoRI_percmono<-(EcoRI_obsfreq-EcoRI_expmonofreq)/EcoRI_expmonofreq
-FatI_percmono<-(FatI_obsfreq-FatI_expmonofreq)/FatI_expmonofreq
-KpnI_percmono<-(KpnI_obsfreq-KpnI_expmonofreq)/KpnI_expmonofreq
-MluCI_percmono<-(MluCI_obsfreq-MluCI_expmonofreq)/MluCI_expmonofreq
-MseI_percmono<-(MseI_obsfreq-MseI_expmonofreq)/MseI_expmonofreq
-MspI_percmono<-(MspI_obsfreq-MspI_expmonofreq)/MspI_expmonofreq
-NcoI_percmono<-(NcoI_obsfreq-NcoI_expmonofreq)/NcoI_expmonofreq
-NgoMIV_percmono<-(NgoMIV_obsfreq-NgoMIV_expmonofreq)/NgoMIV_expmonofreq
-NotI_percmono<-(NotI_obsfreq-NotI_expmonofreq)/NotI_expmonofreq
-NsiI_percmono<-(NsiI_obsfreq-NsiI_expmonofreq)/NsiI_expmonofreq
-NspI_percmono<-(NspI_obsfreq-NspI_expmonofreq)/NspI_expmonofreq
-PciI_percmono<-(PciI_obsfreq-PciI_expmonofreq)/PciI_expmonofreq
-PstI_percmono<-(PstI_obsfreq-PstI_expmonofreq)/PstI_expmonofreq
-SbfI_percmono<-(SbfI_obsfreq-SbfI_expmonofreq)/SbfI_expmonofreq
-SgrAI_percmono<-(SgrAI_obsfreq-SgrAI_expmonofreq)/SgrAI_expmonofreq
+AgeI_percmono<-log2(AgeI_obsfreq/AgeI_expmonofreq)
+ApoI_percmono<-log2(ApoI_obsfreq/ApoI_expmonofreq)
+BsrFI_percmono<-log2(BsrFI_obsfreq/BsrFI_expmonofreq)
+EcoRI_percmono<-log2(EcoRI_obsfreq/EcoRI_expmonofreq)
+FatI_percmono<-log2(FatI_obsfreq/FatI_expmonofreq)
+KpnI_percmono<-log2(KpnI_obsfreq/KpnI_expmonofreq)
+MluCI_percmono<-log2(MluCI_obsfreq/MluCI_expmonofreq)
+MseI_percmono<-log2(MseI_obsfreq/MseI_expmonofreq)
+MspI_percmono<-log2(MspI_obsfreq/MspI_expmonofreq)
+NcoI_percmono<-log2(NcoI_obsfreq/NcoI_expmonofreq)
+NgoMIV_percmono<-log2(NgoMIV_obsfreq/NgoMIV_expmonofreq)
+NotI_percmono<-log2(NotI_obsfreq/NotI_expmonofreq)
+NsiI_percmono<-log2(NsiI_obsfreq/NsiI_expmonofreq)
+NspI_percmono<-log2(NspI_obsfreq/NspI_expmonofreq)
+PciI_percmono<-log2(PciI_obsfreq/PciI_expmonofreq)
+PstI_percmono<-log2(PstI_obsfreq/PstI_expmonofreq)
+SbfI_percmono<-log2(SbfI_obsfreq/SbfI_expmonofreq)
+SgrAI_percmono<-log2(SgrAI_obsfreq/SgrAI_expmonofreq)
 percmono<-cbind(ids,AgeI_percmono,ApoI_percmono,BsrFI_percmono,EcoRI_percmono,FatI_percmono,KpnI_percmono,MluCI_percmono,MseI_percmono,MspI_percmono,NcoI_percmono,NgoMIV_percmono,NotI_percmono,NsiI_percmono,NspI_percmono,PciI_percmono,PstI_percmono,SbfI_percmono,SgrAI_percmono)
 colnames(percmono) <- c("id","AgeI","ApoI","BsrFI","EcoRI","FatI","KpnI","MluCI","MseI","MspI","NcoI","NgoMIV","NotI","NsiI","NspI","PciI","PstI","SbfI","SgrAI")
 row.names(percmono) <- percmono$id
@@ -658,24 +658,24 @@ percmono_frame<- percmono[,2:19]
 percmono_matrix <- data.matrix(percmono_frame)
 
 #Calculate similarity index for each enzyme ((observed-expected)/expected) for di
-AgeI_percdi<-(AgeI_obsfreq-AgeI_expdifreq)/AgeI_expdifreq
-ApoI_percdi<-(ApoI_obsfreq-ApoI_expdifreq)/ApoI_expdifreq
-BsrFI_percdi<-(BsrFI_obsfreq-BsrFI_expdifreq)/BsrFI_expdifreq
-EcoRI_percdi<-(EcoRI_obsfreq-EcoRI_expdifreq)/EcoRI_expdifreq
-FatI_percdi<-(FatI_obsfreq-FatI_expdifreq)/FatI_expdifreq
-KpnI_percdi<-(KpnI_obsfreq-KpnI_expdifreq)/KpnI_expdifreq
-MluCI_percdi<-(MluCI_obsfreq-MluCI_expdifreq)/MluCI_expdifreq
-MseI_percdi<-(MseI_obsfreq-MseI_expdifreq)/MseI_expdifreq
-MspI_percdi<-(MspI_obsfreq-MspI_expdifreq)/MspI_expdifreq
-NcoI_percdi<-(NcoI_obsfreq-NcoI_expdifreq)/NcoI_expdifreq
-NgoMIV_percdi<-(NgoMIV_obsfreq-NgoMIV_expdifreq)/NgoMIV_expdifreq
-NotI_percdi<-(NotI_obsfreq-NotI_expdifreq)/NotI_expdifreq
-NsiI_percdi<-(NsiI_obsfreq-NsiI_expdifreq)/NsiI_expdifreq
-NspI_percdi<-(NspI_obsfreq-NspI_expdifreq)/NspI_expdifreq
-PciI_percdi<-(PciI_obsfreq-PciI_expdifreq)/PciI_expdifreq
-PstI_percdi<-(PstI_obsfreq-PstI_expdifreq)/PstI_expdifreq
-SbfI_percdi<-(SbfI_obsfreq-SbfI_expdifreq)/SbfI_expdifreq
-SgrAI_percdi<-(SgrAI_obsfreq-SgrAI_expdifreq)/SgrAI_expdifreq
+AgeI_percdi<-log2(AgeI_obsfreq/AgeI_expdifreq)
+ApoI_percdi<-log2(ApoI_obsfreq/ApoI_expdifreq)
+BsrFI_percdi<-log2(BsrFI_obsfreq/BsrFI_expdifreq)
+EcoRI_percdi<-log2(EcoRI_obsfreq/EcoRI_expdifreq)
+FatI_percdi<-log2(FatI_obsfreq/FatI_expdifreq)
+KpnI_percdi<-log2(KpnI_obsfreq/KpnI_expdifreq)
+MluCI_percdi<-log2(MluCI_obsfreq/MluCI_expdifreq)
+MseI_percdi<-log2(MseI_obsfreq/MseI_expdifreq)
+MspI_percdi<-log2(MspI_obsfreq/MspI_expdifreq)
+NcoI_percdi<-log2(NcoI_obsfreq/NcoI_expdifreq)
+NgoMIV_percdi<-log2(NgoMIV_obsfreq/NgoMIV_expdifreq)
+NotI_percdi<-log2(NotI_obsfreq/NotI_expdifreq)
+NsiI_percdi<-log2(NsiI_obsfreq/NsiI_expdifreq)
+NspI_percdi<-log2(NspI_obsfreq/NspI_expdifreq)
+PciI_percdi<-log2(PciI_obsfreq/PciI_expdifreq)
+PstI_percdi<-log2(PstI_obsfreq/PstI_expdifreq)
+SbfI_percdi<-log2(SbfI_obsfreq/SbfI_expdifreq)
+SgrAI_percdi<-log2(SgrAI_obsfreq/SgrAI_expdifreq)
 percdi<-cbind(ids,AgeI_percdi,ApoI_percdi,BsrFI_percdi,EcoRI_percdi,FatI_percdi,KpnI_percdi,MluCI_percdi,MseI_percdi,MspI_percdi,NcoI_percdi,NgoMIV_percdi,NotI_percdi,NsiI_percdi,NspI_percdi,PciI_percdi,PstI_percdi,SbfI_percdi,SgrAI_percdi)
 colnames(percdi) <- c("id","AgeI","ApoI","BsrFI","EcoRI","FatI","KpnI","MluCI","MseI","MspI","NcoI","NgoMIV","NotI","NsiI","NspI","PciI","PstI","SbfI","SgrAI")
 row.names(percdi) <- percdi$id
@@ -683,24 +683,24 @@ percdi_frame<- percdi[,2:19]
 percdi_matrix <- data.matrix(percdi_frame)
 
 #Calculate similarity index for each enzyme ((observed-exptriected)/exptriected) for tri
-AgeI_perctri<-(AgeI_obsfreq-AgeI_exptrifreq)/AgeI_exptrifreq
-ApoI_perctri<-(ApoI_obsfreq-ApoI_exptrifreq)/ApoI_exptrifreq
-BsrFI_perctri<-(BsrFI_obsfreq-BsrFI_exptrifreq)/BsrFI_exptrifreq
-EcoRI_perctri<-(EcoRI_obsfreq-EcoRI_exptrifreq)/EcoRI_exptrifreq
-FatI_perctri<-(FatI_obsfreq-FatI_exptrifreq)/FatI_exptrifreq
-KpnI_perctri<-(KpnI_obsfreq-KpnI_exptrifreq)/KpnI_exptrifreq
-MluCI_perctri<-(MluCI_obsfreq-MluCI_exptrifreq)/MluCI_exptrifreq
-MseI_perctri<-(MseI_obsfreq-MseI_exptrifreq)/MseI_exptrifreq
-MspI_perctri<-(MspI_obsfreq-MspI_exptrifreq)/MspI_exptrifreq
-NcoI_perctri<-(NcoI_obsfreq-NcoI_exptrifreq)/NcoI_exptrifreq
-NgoMIV_perctri<-(NgoMIV_obsfreq-NgoMIV_exptrifreq)/NgoMIV_exptrifreq
-NotI_perctri<-(NotI_obsfreq-NotI_exptrifreq)/NotI_exptrifreq
-NsiI_perctri<-(NsiI_obsfreq-NsiI_exptrifreq)/NsiI_exptrifreq
-NspI_perctri<-(NspI_obsfreq-NspI_exptrifreq)/NspI_exptrifreq
-PciI_perctri<-(PciI_obsfreq-PciI_exptrifreq)/PciI_exptrifreq
-PstI_perctri<-(PstI_obsfreq-PstI_exptrifreq)/PstI_exptrifreq
-SbfI_perctri<-(SbfI_obsfreq-SbfI_exptrifreq)/SbfI_exptrifreq
-SgrAI_perctri<-(SgrAI_obsfreq-SgrAI_exptrifreq)/SgrAI_exptrifreq
+AgeI_perctri<-log2(AgeI_obsfreq/AgeI_exptrifreq)
+ApoI_perctri<-log2(ApoI_obsfreq/ApoI_exptrifreq)
+BsrFI_perctri<-log2(BsrFI_obsfreq/BsrFI_exptrifreq)
+EcoRI_perctri<-log2(EcoRI_obsfreq/EcoRI_exptrifreq)
+FatI_perctri<-log2(FatI_obsfreq/FatI_exptrifreq)
+KpnI_perctri<-log2(KpnI_obsfreq/KpnI_exptrifreq)
+MluCI_perctri<-log2(MluCI_obsfreq/MluCI_exptrifreq)
+MseI_perctri<-log2(MseI_obsfreq/MseI_exptrifreq)
+MspI_perctri<-log2(MspI_obsfreq/MspI_exptrifreq)
+NcoI_perctri<-log2(NcoI_obsfreq/NcoI_exptrifreq)
+NgoMIV_perctri<-log2(NgoMIV_obsfreq/NgoMIV_exptrifreq)
+NotI_perctri<-log2(NotI_obsfreq/NotI_exptrifreq)
+NsiI_perctri<-log2(NsiI_obsfreq/NsiI_exptrifreq)
+NspI_perctri<-log2(NspI_obsfreq/NspI_exptrifreq)
+PciI_perctri<-log2(PciI_obsfreq/PciI_exptrifreq)
+PstI_perctri<-log2(PstI_obsfreq/PstI_exptrifreq)
+SbfI_perctri<-log2(SbfI_obsfreq/SbfI_exptrifreq)
+SgrAI_perctri<-log2(SgrAI_obsfreq/SgrAI_exptrifreq)
 perctri<-cbind(ids,AgeI_perctri,ApoI_perctri,BsrFI_perctri,EcoRI_perctri,FatI_perctri,KpnI_perctri,MluCI_perctri,MseI_perctri,MspI_perctri,NcoI_perctri,NgoMIV_perctri,NotI_perctri,NsiI_perctri,NspI_perctri,PciI_perctri,PstI_perctri,SbfI_perctri,SgrAI_perctri)
 colnames(perctri) <- c("id","AgeI","ApoI","BsrFI","EcoRI","FatI","KpnI","MluCI","MseI","MspI","NcoI","NgoMIV","NotI","NsiI","NspI","PciI","PstI","SbfI","SgrAI")
 row.names(perctri) <- perctri$id
@@ -812,163 +812,79 @@ write.table(dinuc_rhostar_matrix, "~/Documents/RADtag/Genomes/paper/scripts/dinu
 ##### FOR PAPER #####
 
 #Figure 1.  Observed restriction site frequencies. Heatmap of the observed frequency of restriction sites. 
-log_obsfreq_matrix_perMb_reord<-cbind(log_obsfreq_matrix_perMb[,12],log_obsfreq_matrix_perMb[,18],log_obsfreq_matrix_perMb[,3],log_obsfreq_matrix_perMb[,11],log_obsfreq_matrix_perMb[,1],log_obsfreq_matrix_perMb[,9],log_obsfreq_matrix_perMb[,17],log_obsfreq_matrix_perMb[,16],log_obsfreq_matrix_perMb[,13],log_obsfreq_matrix_perMb[,2],log_obsfreq_matrix_perMb[,4],log_obsfreq_matrix_perMb[,7],log_obsfreq_matrix_perMb[,8],log_obsfreq_matrix_perMb[,14],log_obsfreq_matrix_perMb[,10],log_obsfreq_matrix_perMb[,15],log_obsfreq_matrix_perMb[,5],log_obsfreq_matrix_perMb[,6])
-colnames(log_obsfreq_matrix_perMb_reord) <- c("NotI","SgrAI","BsrFI","NgoMIV","AgeI","MspI","SbfI","PstI","NsiI","ApoI","EcoRI","MluCI","MseI","NspI","NcoI","PciI","FatI","KpnI")
+enzyme_order_bysignal<-c("AgeI","ApoI","NcoI","MluCI","MseI","BsrFI","PciI","SgrAI","SbfI","MspI","PstI","FatI","NgoMIV","NspI","NotI","KpnI","EcoRI","NsiI")
+log_obsfreq_matrix_perMb_reord<-log_obsfreq_matrix_perMb[,enzyme_order_bysignal]
+valrange<-range(log_obsfreq_matrix_perMb_reord)
+hv_log_obsfreq_perMb<-heatmap.2((log_obsfreq_matrix_perMb_reord), Rowv=NA, Colv=NA,scale="none", breaks=seq(valrange[1],valrange[2],(valrange[2]-valrange[1])/42), col= colorpanel(41,"blue","yellow","red"), main="Log (observed # restriction sites per Mb)", trace="none", denscol="grey")
 
-hv_log_obsfreq_perMb<-heatmap.2((log_obsfreq_matrix_perMb_reord), Rowv=NA, Colv=NA,scale="none", col= colorpanel(41,"blue","yellow","red"), main="Log (observed # restriction sites per Mb)", trace="none", denscol="grey")
+#Figure 3. Box and whisker plots of the similarity index (SI) for each species per enzyme. 
+
+enzyme<-c("AgeI","ApoI","NcoI","MluCI","MseI","BsrFI","PciI","SgrAI","SbfI","MspI","PstI","FatI","NgoMIV","NspI","NotI","KpnI","EcoRI","NsiI")
+row_enzymes<-c('AgeI','MluCI','PciI','MspI','NgoMIV')
+col_enzymes<-c('EcoRI','NsiI')
+inner_enzymes<-setdiff(enzyme,c(union(row_enzymes,col_enzymes),'KpnI'))
+SIplot<-function(enzyme){
+  enzyme_SI<-cbind(perctri[,enzyme],percdi[,enzyme],percmono[,enzyme],percgc[,enzyme])
+  if (enzyme %in% row_enzymes){
+    boxplot(enzyme_SI,col="orange",ylab="SI", xaxt="n", main=enzyme, pars=list(pch=20))
+  }
+  if (enzyme == 'KpnI'){
+    boxplot(enzyme_SI,col="orange",ylab="SI", xaxt="n", main=enzyme, pars=list(pch=20))
+    axis(1, at=c(1,2,3,4), labels=c('tri','di','mono','gc'))
+  }
+  if (enzyme %in% col_enzymes){
+    boxplot(enzyme_SI,col="orange",ylab=NULL, xaxt="n", main=enzyme, pars=list(pch=20))
+    axis(1, at=c(1,2,3,4), labels=c('tri','di','mono','gc'))
+  }
+  if (enzyme %in% inner_enzymes) {
+    boxplot(enzyme_SI,col="orange",ylab=NULL, xaxt="n", main=enzyme, pars=list(pch=20))
+  }
+  abline(0,0, col='red', lty=2)
+}
+pdf(file='~/Documents/RADtag/Genomes/paper/Figures/boxplots_SI.pdf', width=5.12, height=8.28)
+par(mfrow = c(6,3))
+par(mgp=c(1.25,0.25,0),oma=c(2,1,1,1))
+par(mar=c(0,2,1,0)+0.1, tcl=-0.2)
+enzyme_boxplots<-sapply(enzyme,SIplot)
+dev.off()
+
+#Figure 4. Left: heatmap of the similarity indexes for the trinucleotide model. 
+enzyme_order_bysignal<-c("AgeI","ApoI","NcoI","MluCI","MseI","BsrFI","PciI","SgrAI","SbfI","MspI","PstI","FatI","NgoMIV","NspI","NotI","KpnI","EcoRI","NsiI")
+perctri_matrix_reord<-perctri_matrix[,enzyme_order_bysignal]
+hv_tri<-heatmap.2((perctri_matrix_reord), Rowv=NA, Colv=NA, scale="none", breaks=seq(-2.1,2.1,0.1), col= colorpanel(42,"#00FFFF","#000000","#FFE600"), main="Heatmap of Bias Index Trinucleotides", trace="none", denscol="red")
+#Figure 4. Right: heatmap of the similarity indexes for the dinucleotide model. 
+par(mfrow = c(1,1))
+enzyme_order_bysignal<-c("AgeI","ApoI","NcoI","MluCI","MseI","BsrFI","PciI","SgrAI","SbfI","MspI","PstI","FatI","NgoMIV","NspI","NotI","KpnI","EcoRI","NsiI")
+percdi_matrix_reord<-percdi_matrix[,enzyme_order_bysignal]
+hv_di<-heatmap.2((percdi_matrix_reord), Rowv=NA, Colv=NA, scale="none", breaks=seq(-2.1,2.1,0.1), col= colorpanel(42,"#00FFFF","#000000","#FFE600"), main="Similarity Index  Dinucleotide", trace="none", denscol="red")
+
+#Figure 5. Center: Heatmap of the similarity indexes for the GC content model 
+enzyme_order_bysignal<-c("AgeI","ApoI","NcoI","MluCI","MseI","BsrFI","PciI","SgrAI","SbfI","MspI","PstI","FatI","NgoMIV","NspI","NotI","KpnI","EcoRI","NsiI")
+percgc_matrix_reord<-percgc_matrix[,enzyme_order_bysignal]
+hv_gc<-heatmap.2((percgc_matrix_reord), Rowv=NA, Colv=NA,scale="none", breaks=seq(-2.1,2.1,0.1), col= colorpanel(42,"#00FFFF","#000000","#FFE600"), main="Similarity Index GC content", trace="none", denscol="red")
+
+#Figure 5. Right: heatmap of the similarity indexes for the mononucleotide model. 
+enzyme_order_bysignal<-c("AgeI","ApoI","NcoI","MluCI","MseI","BsrFI","PciI","SgrAI","SbfI","MspI","PstI","FatI","NgoMIV","NspI","NotI","KpnI","EcoRI","NsiI")
+percmono_matrix_reord<-percmono_matrix[,enzyme_order_bysignal]
+hv_mono<-heatmap.2((percmono_matrix_reord), Rowv=NA, Colv=NA, scale="none", breaks=seq(-2.1,2.1,0.1), col= colorpanel(42,"#00FFFF","#000000","#FFE600"), main="Similarity Index Mononucleotide", trace="none", denscol="red")
 
 
-#Figure 2. Center: heatmap of the ρ_XY^* odds ratio values.
+#Figure S6. Recovery of RAD-tags after in silico genome digestion and sequencing. Heatmap of the percentage of RAD-tags that produced more than one unique alignment to their reference genome. 
+enzyme_order_bysignal<-c("AgeI","ApoI","NcoI","MluCI","MseI","BsrFI","PciI","SgrAI","SbfI","MspI","PstI","FatI","NgoMIV","NspI","NotI","KpnI","EcoRI","NsiI")
+supp_perc_matrix_reord<-supp_perc_matrix[,enzyme_order_bysignal]
+hv<-heatmap.2((supp_perc_matrix_reord), Rowv=NA, Colv=NA, scale="none", col= colorpanel(17, "#000000","#FF0000"), main="Percentage of non-unique alignments", trace="none", denscol="green")
+
+#Figure S7. Left: heatmap of the ρ_XY^* odds ratio values.
 hv<-heatmap.2((dinuc_rhostar_matrix), Rowv=NA, Colv=NA, scale="none", col= colorpanel(42,"green","#000000","red"), main="dinucleotide rho*", trace="none")
-
-
-#Figure 2. Right: heatmap of the ρ_XY^* odds ratio significant values ρ_XY^*<0.78 and ρ_XY^*>1.23.
+#Figure S7. Right: heatmap of the ρ_XY^* odds ratio significant values ρ_XY^*<0.78 and ρ_XY^*>1.23.
 ditri_matrix_breaks<-c(0,0.78,1.23,2)
 hv<-heatmap.2((dinuc_rhostar_matrix), Rowv=NA, Colv=NA, scale="none", breaks=ditri_matrix_breaks, col= colorpanel(3,"green","#000000","red"), main="dinucleotide rho* significant", trace="none")
 
-
-#Figure 3. Right: heatmap of the γ_XYZ^* odds ratio values. 
+#Figure S8. Heatmap of the γ_XYZ^* odds ratio values. 
 gamma_breaks<-c(0.1430325,0.1854307,0.2278288,0.2702270,0.3126251,0.3550232,0.3974214,0.4398195,0.4822177,0.5246158,0.5670139,0.6094121,0.6518102,0.6942084,0.7366065,0.7790046,0.8214028,0.8638009,0.9061990,0.9485972,0.9909953,1.0333935,1.0757916,1.1181897,1.1605879,1.2029860,1.2453842,1.2877823,1.3301804,1.3725786,1.4149767,1.4573749,1.4997730,1.5421711,1.5845693,1.6269674,1.6693655,1.7117637,1.7541618,1.7965600,1.8389581,1.8813562,1.9237544)
 hv<-heatmap.2((trinuc_gammastar_matrix), Rowv=NA, scale="none", col= colorpanel(42,"green","#000000","red"), breaks=gamma_breaks,main="trinucleotide gamma*", trace="none")
 
-
-#Figure 4. Right: heatmap of the γ_XYZ^* odds ratio significant values ρ_XY^*<0.78 and ρ_XY^*>1.23. 
+#Figure S9. Heatmap of the γ_XYZ^* odds ratio significant values ρ_XY^*<0.78 and ρ_XY^*>1.23. 
 ditri_matrix_breaks<-c(0,0.78,1.23,2)
 hv<-heatmap.2((trinuc_gammastar_matrix), Rowv=NA, scale="none", breaks=ditri_matrix_breaks, col= colorpanel(3,"green","#000000","red"), main="trinucleotide gamma* significant", trace="none")
-
-#Figure 5. Box and whisker plots of the similarity index (SI) for each species per enzyme. 
-AgeI_SI<-cbind(percgc[,2],percmono[,2],percdi[,2],perctri[,2])
-colnames(AgeI_SI)<-c("AgeI_gc","AgeI_mono","AgeI_di","AgeI_tri")
-pdf(file='~/Documents/RADtag/Genomes/paper/Figures/AgeI_SI.pdf')
-boxplot(AgeI_SI,col="orange",ylab="SI",pars=list(pch=20))
-dev.off()
-ApoI_SI<-cbind(percgc[,3],percmono[,3],percdi[,3],perctri[,3])
-colnames(ApoI_SI)<-c("ApoI_gc","ApoI_mono","ApoI_di","ApoI_tri")
-pdf(file='~/Documents/RADtag/Genomes/paper/Figures/ApoI_SI.pdf')
-boxplot(ApoI_SI,col="orange",ylab="SI",pars=list(pch=20))
-dev.off()
-BsrFI_SI<-cbind(percgc[,4],percmono[,4],percdi[,4],perctri[,4])
-colnames(BsrFI_SI)<-c("BsrFI_gc","BsrFI_mono","BsrFI_di","BsrFI_tri")
-pdf(file='~/Documents/RADtag/Genomes/paper/Figures/BsrFI_SI.pdf')
-boxplot(BsrFI_SI,col="orange",ylab="SI",pars=list(pch=20))
-dev.off()
-EcoRI_SI<-cbind(percgc[,5],percmono[,5],percdi[,5],perctri[,5])
-colnames(EcoRI_SI)<-c("EcoRI_gc","EcoRI_mono","EcoRI_di","EcoRI_tri")
-pdf(file='~/Documents/RADtag/Genomes/paper/Figures/EcoRI_SI.pdf')
-boxplot(EcoRI_SI,col="orange",ylab="SI",pars=list(pch=20))
-dev.off()
-FatI_SI<-cbind(percgc[,6],percmono[,6],percdi[,6],perctri[,6])
-colnames(FatI_SI)<-c("FatI_gc","FatI_mono","FatI_di","FatI_tri")
-pdf(file='~/Documents/RADtag/Genomes/paper/Figures/FatI_SI.pdf')
-boxplot(FatI_SI,col="orange",ylab="SI",pars=list(pch=20))
-dev.off()
-KpnI_SI<-cbind(percgc[,7],percmono[,7],percdi[,7],perctri[,7])
-colnames(KpnI_SI)<-c("KpnI_gc","KpnI_mono","KpnI_di","KpnI_tri")
-pdf(file='~/Documents/RADtag/Genomes/paper/Figures/KpnI_SI.pdf')
-boxplot(KpnI_SI,col="orange",ylab="SI",pars=list(pch=20))
-dev.off()
-MluCI_SI<-cbind(percgc[,8],percmono[,8],percdi[,8],perctri[,8])
-colnames(MluCI_SI)<-c("MluCI_gc","MluCI_mono","MluCI_di","MluCI_tri")
-pdf(file='~/Documents/RADtag/Genomes/paper/Figures/MluCI_SI.pdf')
-boxplot(MluCI_SI,col="orange",ylab="SI",pars=list(pch=20))
-dev.off()
-MseI_SI<-cbind(percgc[,9],percmono[,9],percdi[,9],perctri[,9])
-colnames(MseI_SI)<-c("MseI_gc","MseI_mono","MseI_di","MseI_tri")
-pdf(file='~/Documents/RADtag/Genomes/paper/Figures/MseI_SI.pdf')
-boxplot(MseI_SI,col="orange",ylab="SI",pars=list(pch=20))
-dev.off()
-MspI_SI<-cbind(percgc[,10],percmono[,10],percdi[,10],perctri[,10])
-colnames(MspI_SI)<-c("MspI_gc","MspI_mono","MspI_di","MspI_tri")
-pdf(file='~/Documents/RADtag/Genomes/paper/Figures/MspI_SI.pdf')
-boxplot(MspI_SI,col="orange",ylab="SI",pars=list(pch=20))
-dev.off()
-NcoI_SI<-cbind(percgc[,11],percmono[,11],percdi[,11],perctri[,11])
-colnames(NcoI_SI)<-c("NcoI_gc","NcoI_mono","NcoI_di","NcoI_tri")
-pdf(file='~/Documents/RADtag/Genomes/paper/Figures/NcoI_SI.pdf')
-boxplot(NcoI_SI,col="orange",ylab="SI",pars=list(pch=20))
-dev.off()
-NgoMIV_SI<-cbind(percgc[,12],percmono[,12],percdi[,12],perctri[,12])
-colnames(NgoMIV_SI)<-c("NgoMIV_gc","NgoMIV_mono","NgoMIV_di","NgoMIV_tri")
-pdf(file='~/Documents/RADtag/Genomes/paper/Figures/NgoMIV_SI.pdf')
-boxplot(NgoMIV_SI,col="orange",ylab="SI",pars=list(pch=20))
-dev.off()
-NotI_SI<-cbind(percgc[,13],percmono[,13],percdi[,13],perctri[,13])
-#Exclude outlier Enthis
-NotI_SI<-NotI_SI[-37,]
-colnames(NotI_SI)<-c("NotI_gc","NotI_mono","NotI_di","NotI_tri")
-pdf(file='~/Documents/RADtag/Genomes/paper/Figures/NotI_SI.pdf')
-boxplot(NotI_SI,col="orange",ylab="SI",pars=list(pch=20))
-dev.off()
-NsiI_SI<-cbind(percgc[,14],percmono[,14],percdi[,14],perctri[,14])
-colnames(NsiI_SI)<-c("NsiI_gc","NsiI_mono","NsiI_di","NsiI_tri")
-pdf(file='~/Documents/RADtag/Genomes/paper/Figures/NsiI_SI.pdf')
-boxplot(NsiI_SI,col="orange",ylab="SI",pars=list(pch=20))
-dev.off()
-NspI_SI<-cbind(percgc[,15],percmono[,15],percdi[,15],perctri[,15])
-colnames(NspI_SI)<-c("NspI_gc","NspI_mono","NspI_di","NspI_tri")
-pdf(file='~/Documents/RADtag/Genomes/paper/Figures/NspI_SI.pdf')
-boxplot(NspI_SI,col="orange",ylab="SI",pars=list(pch=20))
-dev.off()
-PciI_SI<-cbind(percgc[,16],percmono[,16],percdi[,16],perctri[,16])
-colnames(PciI_SI)<-c("PciI_gc","PciI_mono","PciI_di","PciI_tri")
-pdf(file='~/Documents/RADtag/Genomes/paper/Figures/PciI_SI.pdf')
-boxplot(PciI_SI,col="orange",ylab="SI",pars=list(pch=20))
-dev.off()
-PstI_SI<-cbind(percgc[,17],percmono[,17],percdi[,17],perctri[,17])
-colnames(PstI_SI)<-c("PstI_gc","PstI_mono","PstI_di","PstI_tri")
-pdf(file='~/Documents/RADtag/Genomes/paper/Figures/PstI_SI.pdf')
-boxplot(PstI_SI,col="orange",ylab="SI",pars=list(pch=20))
-dev.off()
-SbfI_SI<-cbind(percgc[,18],percmono[,18],percdi[,18],perctri[,18])
-colnames(SbfI_SI)<-c("SbfI_gc","SbfI_mono","SbfI_di","SbfI_tri")
-pdf(file='~/Documents/RADtag/Genomes/paper/Figures/SbfI_SI.pdf')
-boxplot(SbfI_SI,col="orange",ylab="SI",pars=list(pch=20))
-dev.off()
-SgrAI_SI<-cbind(percgc[,19],percmono[,19],percdi[,19],perctri[,19])
-colnames(SgrAI_SI)<-c("SgrAI_gc","SgrAI_mono","SgrAI_di","SgrAI_tri")
-pdf(file='~/Documents/RADtag/Genomes/paper/Figures/SgrAI_SI.pdf')
-boxplot(SgrAI_SI,col="orange",ylab="SI",pars=list(pch=20))
-dev.off()
-
-
-#Figure 6. Center: heatmap of the similarity indexes for the dinucleotide model. 
-matrix_breaks<-c(-1.01,-1,-0.95,-0.9,-0.85,-0.8,-0.75,-0.7,-0.65,-0.6,-0.55,-0.5,-0.45,-0.4,-0.35,-0.3,-0.25,-0.2,-0.15,-0.1,-0.05,0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1,1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8,1.9,2,2.1)
-
-percdi_matrix_reord<-cbind(percdi_matrix[,12],percdi_matrix[,18],percdi_matrix[,3],percdi_matrix[,11],percdi_matrix[,1],percdi_matrix[,9],percdi_matrix[,17],percdi_matrix[,16],percdi_matrix[,13],percdi_matrix[,2],percdi_matrix[,4],percdi_matrix[,7],percdi_matrix[,8],percdi_matrix[,14],percdi_matrix[,10],percdi_matrix[,15],percdi_matrix[,5],percdi_matrix[,6])
-colnames(percdi_matrix_reord) <- c("NotI","SgrAI","BsrFI","NgoMIV","AgeI","MspI","SbfI","PstI","NsiI","ApoI","EcoRI","MluCI","MseI","NspI","NcoI","PciI","FatI","KpnI")
-
-hv_di<-heatmap.2((percdi_matrix_reord), Rowv=NA, Colv=NA, scale="none", breaks=matrix_breaks, col= colorpanel(42,"#00FFFF","#000000","#FFE600"), main="Similarity Index  Dinucleotide", trace="none", denscol="red")
-
-
-#Figure 6. Right: heatmap of the similarity indexes for the dinucleotide model. 
-matrix_breaks<-c(-1.01,-1,-0.95,-0.9,-0.85,-0.8,-0.75,-0.7,-0.65,-0.6,-0.55,-0.5,-0.45,-0.4,-0.35,-0.3,-0.25,-0.2,-0.15,-0.1,-0.05,0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1,1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8,1.9,2,2.1)
-
-perctri_matrix_reord<-cbind(perctri_matrix[,12],perctri_matrix[,18],perctri_matrix[,3],perctri_matrix[,11],perctri_matrix[,1],perctri_matrix[,9],perctri_matrix[,17],perctri_matrix[,16],perctri_matrix[,13],perctri_matrix[,2],perctri_matrix[,4],perctri_matrix[,7],perctri_matrix[,8],perctri_matrix[,14],perctri_matrix[,10],perctri_matrix[,15],perctri_matrix[,5],perctri_matrix[,6])
-colnames(perctri_matrix_reord) <- c("NotI","SgrAI","BsrFI","NgoMIV","AgeI","MspI","SbfI","PstI","NsiI","ApoI","EcoRI","MluCI","MseI","NspI","NcoI","PciI","FatI","KpnI")
-
-hv_tri<-heatmap.2((perctri_matrix_reord), Rowv=NA, Colv=NA, scale="none", breaks=matrix_breaks, col= colorpanel(42,"#00FFFF","#000000","#FFE600"), main="Heatmap of Bias Index Trinucleotides", trace="none", denscol="red")
-
-
-#Figure 7. Center: Heatmap of the similarity indexes for the GC content model 
-matrix_breaks<-c(-1.01,-1,-0.95,-0.9,-0.85,-0.8,-0.75,-0.7,-0.65,-0.6,-0.55,-0.5,-0.45,-0.4,-0.35,-0.3,-0.25,-0.2,-0.15,-0.1,-0.05,0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1,1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8,1.9,2,2.1)
-
-percgc_matrix_reord<-cbind(percgc_matrix[,12],percgc_matrix[,18],percgc_matrix[,3],percgc_matrix[,11],percgc_matrix[,1],percgc_matrix[,9],percgc_matrix[,17],percgc_matrix[,16],percgc_matrix[,13],percgc_matrix[,2],percgc_matrix[,4],percgc_matrix[,7],percgc_matrix[,8],percgc_matrix[,14],percgc_matrix[,10],percgc_matrix[,15],percgc_matrix[,5],percgc_matrix[,6])
-colnames(percgc_matrix_reord) <- c("NotI","SgrAI","BsrFI","NgoMIV","AgeI","MspI","SbfI","PstI","NsiI","ApoI","EcoRI","MluCI","MseI","NspI","NcoI","PciI","FatI","KpnI")
-
-hv_gc<-heatmap.2((percgc_matrix_reord), Rowv=NA, Colv=NA,scale="none", breaks=matrix_breaks, col= colorpanel(42,"#00FFFF","#000000","#FFE600"), main="Similarity Index GC content", trace="none", denscol="red")
-
-
-#Figure 7. Right: heatmap of the similarity indexes for the mononucleotide model. 
-matrix_breaks<-c(-1.01,-1,-0.95,-0.9,-0.85,-0.8,-0.75,-0.7,-0.65,-0.6,-0.55,-0.5,-0.45,-0.4,-0.35,-0.3,-0.25,-0.2,-0.15,-0.1,-0.05,0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1,1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8,1.9,2,2.1)
-
-percmono_matrix_reord<-cbind(percmono_matrix[,12],percmono_matrix[,18],percmono_matrix[,3],percmono_matrix[,11],percmono_matrix[,1],percmono_matrix[,9],percmono_matrix[,17],percmono_matrix[,16],percmono_matrix[,13],percmono_matrix[,2],percmono_matrix[,4],percmono_matrix[,7],percmono_matrix[,8],percmono_matrix[,14],percmono_matrix[,10],percmono_matrix[,15],percmono_matrix[,5],percmono_matrix[,6])
-colnames(percmono_matrix_reord) <- c("NotI","SgrAI","BsrFI","NgoMIV","AgeI","MspI","SbfI","PstI","NsiI","ApoI","EcoRI","MluCI","MseI","NspI","NcoI","PciI","FatI","KpnI")
-
-hv_mono<-heatmap.2((percmono_matrix_reord), Rowv=NA, Colv=NA, scale="none", breaks=matrix_breaks, col= colorpanel(42,"#00FFFF","#000000","#FFE600"), main="Similarity Index Mononucleotide", trace="none", denscol="red")
-
-
-#Figure 8. Recovery of RAD-tags after in silico genome digestion and sequencing. Heatmap of the percentage of RAD-tags that produced more than one unique alignment to their reference genome. 
-supp_perc_matrix_reord<-cbind(supp_perc_matrix[,12],supp_perc_matrix[,18],supp_perc_matrix[,3],supp_perc_matrix[,11],supp_perc_matrix[,1],supp_perc_matrix[,9],supp_perc_matrix[,17],supp_perc_matrix[,16],supp_perc_matrix[,13],supp_perc_matrix[,2],supp_perc_matrix[,4],supp_perc_matrix[,7],supp_perc_matrix[,8],supp_perc_matrix[,14],supp_perc_matrix[,10],supp_perc_matrix[,15],supp_perc_matrix[,5],supp_perc_matrix[,6])
-colnames(supp_perc_matrix_reord)<-c("NotI","SgrAI","BsrFI","NgoMIV","AgeI","MspI","SbfI","PstI","NsiI","ApoI","EcoRI","MluCI","MseI","NspI","NcoI","PciI","FatI","KpnI")
-hv<-heatmap.2((supp_perc_matrix_reord), Rowv=NA, Colv=NA, scale="none", col= colorpanel(17, "#000000","#FF0000"), main="Percentage of non-unique alignments", trace="none", denscol="green")
 
